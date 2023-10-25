@@ -8,7 +8,7 @@ import serial
 import struct
 
 from geometry_msgs.msg import PointStamped
-from ros_decawave.msg import Tag, Anchor, AnchorArray, Acc
+from decawave_msgs.msg import Tag, Anchor, AnchorArray, Acc
 
 
 class DecawaveDriver(object):
