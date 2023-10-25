@@ -1,6 +1,6 @@
 # Anchor message structure. qf is the quality of this measurement and dist_qf the quality of the estimated distance.
 
-Header header
+std_msgs/Header header
 
 float64 x ## in m
 float64 y ## in m

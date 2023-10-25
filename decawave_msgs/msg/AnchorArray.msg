@@ -1,4 +1,4 @@
 # An array of anchors
-Header header
+std_msgs/Header header
 
 Anchor[] anchors
