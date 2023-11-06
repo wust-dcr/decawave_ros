@@ -167,7 +167,7 @@ class DecawaveDriver(Node):
         self.tag.z = float(data_[7]) / 1000.0
         self.tag.qf = float(data_[8]) / 100.0
         self.tag.n_anchors = int(data_[11])
-        self.tag.header.frame_id = self.tag_name_
+        self.tag.header.frame_id = self.get_namespace() + "/" + self.tag_name_
 
         self.anchor_packet_size = 20  # Size of anchor packet in bytes
         now = self.get_clock().now()
@@ -194,7 +194,7 @@ class DecawaveDriver(Node):
     def publish_transform(self):
         if self.tf_publisher_ is True:
             world_to_tag_trans = TransformStamped()
-            world_to_tag_trans.header.frame_id = self.tag_name_
+            world_to_tag_trans.header.frame_id = self.get_namespace() + "/" + self.tag_name_
             world_to_tag_trans.child_frame_id = self.tf_reference_
             world_to_tag_trans.header.stamp = self.get_clock().now().to_msg()
             world_to_tag_trans.transform.translation.x = self.tag.x
