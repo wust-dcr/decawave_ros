@@ -1,4 +1,5 @@
 # ros_decawave
+See [docs](https://github.com/verlab/ros_decawave/tree/master/docs/DWM1001_DWM1001-DEV_MDEK1001_Sources_and_Docs_v8)
 Positioning System based on Decawave's DWM1001 Ultra Wide Band transceivers.
 
 ## Dependencies
@@ -42,8 +43,7 @@ $ rostopic list
 /rosout_agg
 /status # anchors status
 /syscommand
-/tf 
+/tf
 /tf_static
 /trajectory # tag path
 ```
-

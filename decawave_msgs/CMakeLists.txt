@@ -11,6 +11,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/AnchorArray.msg"
   "msg/Tag.msg"
   DEPENDENCIES std_msgs
- )
+)
 
 ament_package()

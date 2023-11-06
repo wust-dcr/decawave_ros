@@ -7,4 +7,3 @@ float64 y ## in m
 float64 z ## in m
 float64 qf ## in percent
 int16 n_anchors ## number of anchors
-
