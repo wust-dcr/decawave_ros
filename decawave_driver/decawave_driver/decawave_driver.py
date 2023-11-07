@@ -20,9 +20,9 @@ class DecawaveDriver(Node):
         super().__init__("decawave_driver")
         # Getting Serial Parameters
         self.handle_parameters()
-        self.port_ = self.get_parameter("port").get_parameter_value().string_value
+        self.serial_port_ = self.get_parameter("serial_port").get_parameter_value().string_value
         self.baudrate_ = self.get_parameter("baudrate").get_parameter_value().integer_value
-        self.tf_publisher_ = self.get_parameter("tf_publisher").get_parameter_value().bool_value
+        self.tf_publisher_ = self.get_parameter("enable_tf").get_parameter_value().bool_value
         self.tf_reference_ = self.get_parameter("tf_reference").get_parameter_value().string_value
         self.tag_name_ = self.get_parameter("tag_name").get_parameter_value().string_value
         self.rate_ = self.get_parameter("rate").get_parameter_value().integer_value
@@ -31,7 +31,7 @@ class DecawaveDriver(Node):
         )
         self.serial_timeout = Duration(seconds=self.serial_timeout_param)
         # Initiate Serial
-        self.ser = serial.Serial(self.port_, self.baudrate_, timeout=0.1)
+        self.ser = serial.Serial(self.serial_port_, self.baudrate_, timeout=0.1)
         self.get_logger().info(f"\33[96mConnected to {self.ser.portstr} at {self.baudrate_}\33[0m")
         self.get_uart_mode()
         self.get_uart_mode()
@@ -55,9 +55,9 @@ class DecawaveDriver(Node):
         self.get_logger().info("\33[96mSpinning...\33[0m")
 
     def handle_parameters(self):
-        self.declare_parameter("port", "/dev/ttyACM0")
+        self.declare_parameter("serial_port", "/dev/ttyACM0")
         self.declare_parameter("baudrate", 115200)
-        self.declare_parameter("tf_publisher", True)
+        self.declare_parameter("enable_tf", True)
         self.declare_parameter("tf_reference", "world")
         self.declare_parameter("tag_name", "tag")
         self.declare_parameter("rate", 10)

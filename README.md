@@ -1,37 +1,21 @@
 # ros_decawave
-See [docs](https://github.com/verlab/ros_decawave/tree/master/docs/DWM1001_DWM1001-DEV_MDEK1001_Sources_and_Docs_v8)
 Positioning System based on Decawave's DWM1001 Ultra Wide Band transceivers.
-
-## Dependencies
-
-### Python Dependencies
-```
-$ pip install pyserial
-$ pip install struct
-```
-
-### ROS Dependencies
-```
-$ apt install ros-kinetic-hector-trajectory-server
-```
-
-## Tutorial
-### Pre-Setup
-Setup the tag and the anchors using the Android app, and connected the tag using an USB cable to PC.
+For more informations see [docs](https://github.com/verlab/ros_decawave/tree/master/docs/DWM1001_DWM1001-DEV_MDEK1001_Sources_and_Docs_v8).
 
 ### Download and Compilation
 Download this repo into the ros workspace and compile:
 ```
-$ cd src/
-$ git clone https://github.com/verlab/ros_decawave.git
-$ cd ..
-$ catkin_make ## or catkin build
+git clone https://github.com/wust-dcr/decawave_ros src/
+rosdep init
+rosdep update --rosdistro $ROS_DISTRO
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+colcon build
 ```
 
 ### Using
 Run the launch:
 ```
-$ roslaunch ros_decawave decawave_driver.launch
+ros2 launch decawave_driver decawave.launch.py
 ```
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ieaP79FDLC0/0.jpg)](https://www.youtube.com/watch?v=ieaP79FDLC0)
 
